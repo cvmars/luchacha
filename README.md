@@ -5,7 +5,7 @@
 ## 安卓对接流程
 
 ```
-String BLD_APP_KEY= "4bc991f7-0600-4c0d-bfab-52c65a3f0433"'  <font color=#FF7F50>找管理员分配的AppKey</font>
+String BLD_APP_KEY= "4bc991f7-0600-4c0d-bfab-52c65a3f0433"' // <font color="#FF7F50" >找管理员分配的AppKey</font>
 long curtTime = System.currentTimeMillis() ; //时间戳 单位毫秒
 String strAppSecrt = curtTime + "&" + BLD_APP_KEY;                 
 String result =curtTime +"&"+ MD5Utils.toMD5(strAppSecrt) ； //MD5加密
