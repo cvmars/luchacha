@@ -2,7 +2,7 @@
 鲁查查对接说明
  在APP的WebView的header里添加参数bldSign,用来区分是从某个APP过来。
 
-安卓对接流程
+## 安卓对接流程
 
 ```
 String BLD_APP_KEY= "4bc991f7-0600-4c0d-bfab-52c65a3f0433"' //管理员分配的AppKey
