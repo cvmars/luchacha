@@ -95,6 +95,7 @@ public class Base64Utils {
 
 //加密后的字段 ，设置在webview的header里参数名为 bldSign
 
+@params(appKey 管理员分配的)
 - (NSString *)encodeStrWithAppKey:(NSString *)appKey {
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval time = [date timeIntervalSince1970] * 1000;
