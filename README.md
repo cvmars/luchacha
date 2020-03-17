@@ -1,5 +1,5 @@
 # luchacha
-鲁查查对接说明
+宝莲灯对接说明
  在APP的WebView的header里添加参数bldSign,用来区分是从某个APP过来。
 
 ## 安卓对接流程
