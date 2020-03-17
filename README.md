@@ -89,6 +89,41 @@ public class Base64Utils {
 ## IOS对接流程
 
 
+```
+#import <CommonCrypto/CommonDigest.h>
+
+
+//加密后的字段 ，设置在webview的header里参数名为 bldSign
+
+- (NSString *)encodeStrWithAppKey:(NSString *)appKey {
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval time = [date timeIntervalSince1970] * 1000;
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+    NSString *resultStr = [NSString stringWithFormat:@"%@&%@", timeString, [self md5:[NSString stringWithFormat:@"%@&%@", timeString, appKey]]];
+    NSString *encodeStr = [NSString stringWithFormat:@"LCCS%@", [self base64EncodeString:resultStr]];
+    return encodeStr;  // 
+}
+
+
+-(NSString *)base64EncodeString:(NSString *)string{
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    return [data base64EncodedStringWithOptions:0];
+}
+
+- (NSString *)md5:(NSString *) str {
+    if (! str) return nil;
+    const char *cStr = str.UTF8String;
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(cStr, (CC_LONG) strlen(cStr), result);
+    NSMutableString *md5Str = [NSMutableString string];
+    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i ++) {
+        [md5Str appendFormat:@"%02x", result[i]];
+    }
+    return md5Str;
+}
+
+
+```
 
 
 
